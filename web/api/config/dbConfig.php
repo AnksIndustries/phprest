@@ -2,10 +2,10 @@
 class Database{
   
     // specify your own database credentials
-    private $host = "localhost";
-    private $db_name = "grayroutes";
-    private $username = "root";
-    private $password = "";
+    private $host = "remotemysql.com";
+    private $db_name = "ykx2ArmHGC";
+    private $username = "ykx2ArmHGC";
+    private $password = "9D6RD6SYPP";
     public $conn;
   
     // get the database connection
