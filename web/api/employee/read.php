@@ -16,8 +16,8 @@ $employee = new Employee($db);
   
 // query products
 
-$employee->id = isset($_POST['id']) ? $_POST['id'] : die();
-$employee->password = isset($_POST['password']) ? $_POST['password'] : die();
+$employee->id = isset($_GET['id']) ? $_GET['id'] : die();
+$employee->password = isset($_GET['password']) ? $_GET['password'] : die();
 
 $employee->read();
 
