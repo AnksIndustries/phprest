@@ -13,15 +13,15 @@ $datb = $database->getConnection();
 $id = $_GET['emp_id'];
 
 function getEmpUnder($db,$employeeId){
-        $sql = "SELECT c.ID, c.Type, e.name as Reporting_Head, c.name as Employee_Name, c.SALARY from employee e, employee c where e.ID = c.PARENT_ID and e.ID=".$employeeId;
+        $sql = "SELECT c.ID as ID, c.TYPE as Type, e.name as Reporting_Head, c.name as Employee_Name, c.SALARY as SALARY from employee e, employee c where e.ID = c.PARENT_ID and e.ID=".$employeeId;
       
         $stmt = $db->query($sql);
         while($rows = $stmt->fetch_assoc()){
             $employeeArr[$rows['ID']] = array(
                 "id" => $rows['ID'],
-                "type" => $rows['TYPE'],
-                "Reporting Head" => $rows['Reporting Head'],
-                "Employee Name" => $rows['Employee Name'],
+                "type" => $rows['Type'],
+                "Reporting Head" => $rows['Reporting_Head'],
+                "Employee Name" => $rows['Employee_Name'],
                 "SALARY" => $rows['SALARY']
             );
         }
