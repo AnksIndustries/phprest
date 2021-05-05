@@ -13,18 +13,7 @@ $datb = $database->getConnection();
 $id = $_GET['emp_id'];
 
 function getEmpUnder($db,$employeeId){
-        $sql = "WITH EPR AS
-        (
-          SELECT     ID, TYPE , NAME as `Employee Name`, SALARY
-          FROM       employee
-          WHERE      ID = ".$employeeId."
-          UNION ALL
-          SELECT     p.PARENT_ID as P_ID, p.NAME as `Reporting Head`
-          FROM       employee p
-          INNER JOIN EPR
-                  ON EPR.ID = P_ID
-        )
-      SELECT ID, TYPE, `Reporting Head`,`Employee Name`,SALARY  FROM EPR";
+        $sql = "SELECT c.ID, c.Type, e.name as Reporting_Head, c.name as Employee_Name, c.SALARY from employee e, employee c where e.ID = c.PARENT_ID and e.ID=".$employeeId;
       
         $stmt = $db->query($sql);
         while($rows = $stmt->fetch_assoc()){
