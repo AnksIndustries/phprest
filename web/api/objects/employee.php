@@ -21,7 +21,7 @@ class Employee{
     function read(){
   
         // select all query
-        $query = "SELECT * from ". $this->table_name . " WHERE ID=".$this.id." and PASSWORD='".$this.password."'";
+        $query = "SELECT * from ". $this->table_name . " WHERE ID=".$this->id." and PASSWORD='".$this->password."'";
     
         // prepare query statement
         $stmt = $this->conn->query($query);
