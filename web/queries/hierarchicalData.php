@@ -10,7 +10,7 @@ include_once '../api/config/dbConfig.php';
 $database = new Database();
 $datb = $database->getConnection();
 
-$id = $_POST['emp_id'];
+$id = $_GET['emp_id'];
 
 function getEmpUnder($db,$employeeId){
         $sql = "SELECT c.ID as ID, c.TYPE as Type, e.name as Reporting_Head, c.name as Employee_Name, c.SALARY as SALARY from employee e, employee c where e.ID = c.PARENT_ID and e.ID=".$employeeId;
